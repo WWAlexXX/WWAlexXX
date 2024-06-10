@@ -1,0 +1,53 @@
+create database datosaAlum;
+
+use datosaAlum;
+
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE IF NOT EXISTS usuarios (
+  nom varchar(50) NOT NULL,
+  correo varchar(50) NOT NULL,
+  pass varchar(50) NOT NULL,
+  PRIMARY KEY (correo)
+);
+
+INSERT INTO usuarios (nom, correo, pass) VALUES
+('Admin', 'admin@gmail.com', 'admin123'),
+('Juan Antonio', 'juanantonio@gmail.com', 'juanantonio123'),
+('Alexander', 'alexander@gmail.com', 'alexander123');
+
+DROP TABLE IF EXISTS categoria_productos;
+CREATE TABLE IF NOT EXISTS categoria_productos (
+  id int NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO categoria_productos (id, nombre) VALUES
+(1, '4AMP'),
+(2, '2AMP'),
+(3, '6AMP'),
+(4, '2AML'),
+(5, '4AML'),
+(6, '6AML'),
+(7, '2AVP'),
+(8, '4AVP'),
+(9, '6AVP'),
+(10, '4AVL');
+
+DROP TABLE IF EXISTS productos;
+CREATE TABLE IF NOT EXISTS `productos` (
+  id int NOT NULL AUTO_INCREMENT,
+  nombre varchar(50) DEFAULT NULL,
+  descripcion varchar(255) DEFAULT NULL,
+  precio varchar(11) DEFAULT NULL,
+  categoria_id int DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY categoria_id (categoria_id)
+);
+
+INSERT INTO productos (id, nombre, descripcion, precio, categoria_id) VALUES
+(1, 'Juan Antonio Garcia Morante', 'Calle Norte #21 San Francisco', 2481730923, 1),
+(2, 'Alexander Lozada Salgado', 'Calle Sur #35 Tlaxcala', 2451830283, 1),
+(3, 'Samuel Mares Barragan', 'Calle Poniente #15 San Jeronimo', 2481940238, 1),
+(4, 'Pedro Sanchez Garcia', 'Calle Rosa #7 San Martin', 2451038245, 2),
+(5, 'Pablo Hernandez Perez', 'Calle Benito Juarez #50 San Martin', 2481394223, 3);
