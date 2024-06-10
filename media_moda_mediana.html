@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO JUAN ANTONIO Y ALEXANDER</title>
+<center>
+<script>
+    var n = new Array();
+    var i=0;
+    var r,mdn;
+    function mediana(n){
+            var mitad=0;
+            n.sort();
+            n.reverse();
+            mitad=parseFloat(n.length/2);
+            if(n.length % 2 ===0){
+                return parseFloat((n[mitad-1]+ n[mitad])/2);
+            }else{
+                return n[Math.floor(mitad)];
+            }
+            
+
+        }
+    do{
+                do{
+                n[i]=prompt("ingresa el numero "+(i+1));
+                n[i]=parseFloat(n[i]);
+                if(Number.isInteger(n[i]) ==false){
+                    alert("ingrese un numero vaido");
+                }
+                }while(Number.isInteger(n[i]) ==false);
+                r=confirm("desea ingresar otro numero?");
+                if(r==true){
+                    i++;
+                }
+            }while(r==true);
+            document.write("<h2>PROYECTO JUAN ANTONIO GARCIA MORANTE Y ALEXANDER LOZADA SALGADO</h2>")
+            document.write("<h1>EL ARREGLO ES: </h1>")
+            for(i=0;i<n.length;i++){
+                document.write("<h1> "+n[i]+"</h1>");
+            }
+            document.write("<br>");
+            //MEDIA ARITMETICA :)
+            var promedio=0;
+            for(i=0;i<n.length;i++){
+                promedio=promedio+n[i];
+            }
+            promedio=(promedio/n.length);
+            document.write("<h1> LA MEDIA ARITMETICA ES: "+promedio+"</h1>");
+            //MODA ARITMETICA :)
+            var numero=0,rep=0,c=0,a=0,a=0,b=0;
+            var valor;
+            for(i=0;i<n.length;i++){
+                numero=n[i];
+                for(a=0;a<n.length;a++){
+                    if(numero==n[a]){
+                        c=c+1;
+                    }
+                }
+                if(rep<c){
+                    rep=c;
+                    valor=n[i];
+                }
+                c=0;
+            }
+            document.write("<h1><br>LA MODA ARITMETICA: "+valor+" Y SE REPITE "+rep+" VECES</h1>");
+            //MEDIANA ARITMETICA :)
+            
+            mdn=parseFloat(mediana(n));
+            document.write("<h1>LA MEDIANA ARITMETICA ES: </h1>"+ "<h1>"+mdn.toFixed(1)+"</h1>");
+</script>
+</center>
+</head>
+<body>
+    
+</body>
+</html>
